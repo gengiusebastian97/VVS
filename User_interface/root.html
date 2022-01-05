@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script> 
+function submit(){
+	const url = 'http://localhost:8080/'
+	
+	let content = {
+		firstname: document.getElementById("firstname").value; 
+		lastname: document.getElementById("lastname").value; 
+		email: document.getElementById("email").value; 
+		username: document.getElementById("username").value; 
+		password: document.getElementById("password").value; 
+	};
+	$(document).ready(function() {
+	$.ajax({
+            type: "POST",
+            url: 'http://localhost:8080/',
+            data: {
+                 json: JSON.stringify(content)
+            },
+            success: function (response) {
+                console.log(response);
+            }
+        });
+}
+}
+</script>
+</head>
+<body>
+
+<h1>VVS - UI </h1>
+<div>
+<form id="form1">
+
+  <label for="firstname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  
+  <label for="lastname">Last name:</label>
+  <input type="text" id="lastname" name="lastname"><br><br>
+  
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+  
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email"><br><br>
+  
+  <label for="password">Password:</label>
+  <input type="text" id="password" name="password"><br><br>
+  
+  <input type="button" onclick="submit()" value="Submit">
+</form>
+</div>
+<div>
+	<ul>
+	  <li>Fistname : Gengiu</li>
+	  <li>Lastname : Sebastian</li>
+	  <li>Username : Sebi</li>
+	  <li>Email	   : gengiusebastian97@gmail.com</li>
+	</ul>
+</div>
+
+</body>
+</html>
